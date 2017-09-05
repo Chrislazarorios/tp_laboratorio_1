@@ -48,7 +48,7 @@ float multiplicacion(float A, float B)
         return resultado;
     }
 
-int factorial(int num)
+unsigned long long int factorial(int num)
     {
         int i;
         int fact = 1;

@@ -1,17 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-float ingresarNum ();
-/** \brief Funcion que recibe un numero decimal. Se llama dos veces, una en A y B.
+/** \brief Funcion que recibe un numero decimal. Se llama dos veces, en A y B.
  *
  * \param  No posee parametros. Los datos los decide el usuario.
  * \return Retorna el numero que ingresa el usuario en el case en que fue llamado.
  *
  */
 
+float ingresarNum ();
 
-float suma (float, float );
 /** \brief Funcion que suma los numeros decimales ingresados en case 1 y 2
  *
  * \param numero ingresado en case 1
@@ -20,8 +18,8 @@ float suma (float, float );
  *
  */
 
+float suma (float, float );
 
-float resta (float, float );
 /** \brief Funcion que resta los numeros decimales ingresados en case 1 y 2
  *
  * \param numero ingresado en case 1
@@ -30,8 +28,8 @@ float resta (float, float );
  *
  */
 
+float resta (float, float );
 
-float multiplicacion (float, float );
 /** \brief Funcion que multiplica los numeros decimales ingresados en case 1 y 2
  *
  * \param numero ingresado en case 1
@@ -40,8 +38,8 @@ float multiplicacion (float, float );
  *
  */
 
+float multiplicacion (float, float );
 
-float division (float, float );
 /** \brief Funcion que divide los numeros decimales ingresados en case 1 y 2
  *
  * \param numero ingresado en case 1
@@ -50,8 +48,8 @@ float division (float, float );
  *
  */
 
+float division (float, float );
 
-int factorial (int );
 /** \brief Funcion que factoriza el numero entero ingresados en case 1
  *
  * \param numero ingresado en case 1
@@ -59,8 +57,8 @@ int factorial (int );
  *
  */
 
+unsigned long long int factorial (int );
 
-float todoJunto (float, float);
 /** \brief Funcion que engloba las funciones previamente declaradas
  *
  * \param numero ingresado en case 1
@@ -68,4 +66,7 @@ float todoJunto (float, float);
  * \return suma, resta, multiplica y divide los decimales ingresados, tambien factoriza el entero del case 1
  *
  */
+
+float todoJunto (float, float);
+
 
