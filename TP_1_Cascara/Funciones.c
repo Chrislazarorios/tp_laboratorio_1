@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <inttypes.h>
 #include "Funciones.h"
 
 float ingresarNum()
@@ -48,16 +49,20 @@ float multiplicacion(float A, float B)
         return resultado;
     }
 
-unsigned long long int factorial(int num)
+long long int factorial(int num)
     {
         int i;
-        int fact = 1;
+        long long int fact = 1;
+//        while(num < 0)
+//        {
+//            printf("Error, los negativos no tienen factorial");
+//        }
 
         for(i = num; i > 0; i--)
         {
             fact = fact * i;
         }
-        printf("El factorial de %i es: %i\n", num, fact);
+        printf("El factorial de %d es: %lld \n", num, fact); //Me salta warning con el long long int, pero el factorial funciona hasta 20
         return fact;
     }
 

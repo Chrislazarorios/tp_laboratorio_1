@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <inttypes.h>
+
 
 /** \brief Funcion que recibe un numero decimal. Se llama dos veces, en A y B.
  *
@@ -57,7 +59,7 @@ float division (float, float );
  *
  */
 
-unsigned long long int factorial (int );
+long long int factorial (int );
 
 /** \brief Funcion que engloba las funciones previamente declaradas
  *
