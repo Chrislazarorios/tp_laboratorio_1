@@ -5,11 +5,12 @@
 #include <conio.h>
 #include "TP2.h"
 
-/** \brief
+/** \brief carga datos de la estructura y cambia el estado a uno
  *
- * \param
- * \param
- * \return
+ * \param nombre es el nombre que se cargara en la variable nombre de la estructura
+ * \param edad es la edad que se cargara en la variable edad de la estructura
+ * \param dni es el dni que se cargara en la variable dni de la estructura
+ * \return una estructura persona
  *
  */
 
@@ -27,11 +28,11 @@ ePersona cargarPersona(char nombre[], int edad, int dni)
 }
 
 
-/** \brief
+/** \brief borra una persona cargada a partir del DNI
  *
- * \param
- * \param
- * \return
+ * \param persona es el array de la estructura ePersona seleccionada
+ * \param tam es el tamaño del array
+ * \return void
  *
  */
 
@@ -89,11 +90,11 @@ void borrarPersona(ePersona persona[], int tam)
  }
 
 
- /** \brief
+ /** \brief muestra los datos cargados en el array de la estructura persona
   *
-  * \param
-  * \param
-  * \return
+  * \param persona es el array de la estructura ePersona
+  * \param tam es el tamaño del array
+  * \return void
   *
   */
 
@@ -116,8 +117,9 @@ void borrarPersona(ePersona persona[], int tam)
 
 /**
  * \brief Obtiene el primer indice libre del array.
- * @param persona el array se pasa como parametro.
- * @return el primer indice disponible
+ * \param persona es el array de la estructura ePersona
+ * \param tam es el tamaño del array
+ * \return el primer indice disponible
  */
 
 int encontrarEspacioLibre(ePersona persona[], int tam)
@@ -147,9 +149,10 @@ int encontrarEspacioLibre(ePersona persona[], int tam)
 
 
 /**
- * \brief ordena los nombres de sujetos ingresados
- * @param persona el array se pasa como parametro.
- * @return lista ordenada alfabeticamente de los nombres basado en la tabla ascii
+ * \brief ordena los nombres de sujetos ingresados de forma ascendente y descendente
+ * \param persona es el array de la estructura ePersona
+ * \param tam es el tamaño del array
+ * \return void
  *
  */
 
@@ -162,13 +165,14 @@ void ordenarPorNombre(ePersona persona[], int tam)
     int j;
     int opcion;
 
+    printf("Como desea ordenar? Elija una opcion : \n");
     printf("1 - Ordenar de forma ascendente (A - Z)\n");
     printf("2 - Ordenar de forma descendente (Z - A)\n");
     scanf("%d", &opcion);
 
     while(opcion != 1 && opcion != 2)
     {
-        printf("Error, seleccione opcion 1 o 2 : ");
+        printf("Error, seleccione opcion 1 o 2 : \n");
         scanf("%d", &opcion);
     }
 
@@ -232,9 +236,10 @@ void ordenarPorNombre(ePersona persona[], int tam)
 
 /**
  * \brief Obtiene el indice que coincide con el dni buscado por parametro.
- * @param persona el array se pasa como parametro.
- * @param dni el dni a ser buscado en el array.
- * @return el indice en donde se encuentra el elemento que coincide con el parametro dni
+ * \param persona es el array de la estructura ePersona
+ * \param dni el dni a ser buscado en el array.
+ * \param tam es el tamaño del array
+ * \return el dni buscado
  */
 
 int buscarPorDni(ePersona persona[], int dni, int tam)
@@ -262,11 +267,12 @@ int buscarPorDni(ePersona persona[], int dni, int tam)
     }
 
 
-/** \brief
- *
- * \param
- * \param
- * \return
+/**
+ * \brief grafica las personas cargadas segun su rango de edad
+ * \param menoresDe18 variable donde se guarda la cantidad de personas en ese rango de edad
+ * \param de19A35 variable donde se guarda la cantidad de personas en ese rango de edad
+ * \param mayoresDe35 variable donde se guarda la cantidad de personas en ese rango de edad
+ * \return void
  *
  */
 
