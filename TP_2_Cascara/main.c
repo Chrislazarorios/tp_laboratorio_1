@@ -1,29 +1,35 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "funciones.h"
-#define lenght 20
+#include "TP2.h"
+#define TAM 20
 
 
 int main()
 {
     int i;
-    int grafico[3][lenght];
     int espacioLibre;
-    int espacioEncontrado;
-    char seguir='s';
-    int opcion=0;
-    char nombreAux[51];
-    int edadAux;
-    char edadAuxStr[50];
-    int dniAux;
-    char dniAuxStr[50];
+    char seguir = 's';
+    int opcion = 0;
+    char nombre[TAM][51];
+    int edad[TAM];
+    int dni[TAM];
+    int flagDni = 0;
+    int menores18 = 0;
+    int de19A35 = 0;
+    int mayores35 = 0;
+
+    ePersona persona[TAM];
 
 
-    ePersona persona[lenght];
 
-    sujetoEstado( persona, lenght, 0);
 
+    for(i = 0; i < TAM; i++)
+    {
+        persona[i].estado = 0;
+        persona[i].dni = 0;
+        persona[i].edad = 0;
+    }
 
     while(seguir=='s')
     {
@@ -31,8 +37,7 @@ int main()
         printf("2- Borrar persona\n");
         printf("3- Imprimir lista ordenada por  nombre\n");
         printf("4- Imprimir grafico de edades\n");
-        printf("5- Modificar datos\n");
-        printf("6- Salir\n");
+        printf("5- Salir\n");
 
         scanf("%d",&opcion);
 
@@ -40,200 +45,131 @@ int main()
         {
             case 1:
                 system("cls");
-                espacioLibre = obtenerEspacioLibre(persona, lenght);
+
+                espacioLibre = encontrarEspacioLibre(persona, TAM);
+
+
 
                 if(espacioLibre == -1)
                     {
-                        printf("No hay espacio libre\n");
+                        printf("No hay espacio libre!!\n");
                         break;
                     }
 
                 printf("\nAgregar persona : \n");
-                if(!getStringNumero("Ingrese el DNI :", dniAuxStr))
-                    {
-                        printf("DNI invalido\n");
-                        break;
-                    }
-                dniAux = atoi(dniAuxStr);
 
+                if(espacioLibre != -1)
+                {
+                    printf("Ingrese nombre : ");
+                    fflush(stdin);
+                    gets(nombre[espacioLibre]);
 
-                if(buscarPorDni( persona, lenght, dniAux) == -1)
+                    printf("Ingrese edad : ");
+                    scanf("%d", &edad[espacioLibre]);
+                    if(edad[espacioLibre] < 1 || edad[espacioLibre] > 100)
                     {
-                        printf("DNI en uso\n");
-                        break;
-                    }
-
-                if(!getStringLetras("Ingrese nombre : ", nombreAux))
-                    {
-                        printf("Error, debe ingresar un nombre\n");
-                        break;
+                        printf("Error, ingrese una edad entre 1 y 100");
+                        scanf("%d", &edad[espacioLibre]);
                     }
 
-                if(!getStringNumero("Ingrese edad : ", edadAuxStr))
+                    printf("Ingrese DNI : ");
+                    scanf("%d", &dni[espacioLibre]);
+
+                    for(i = 0; i < TAM; i++)
                     {
-                        printf("Error, ingrese edad\n");
-                        break;
+                        if(persona[i].dni == dni[espacioLibre])
+                        {
+                            printf("Error, el DNI ya existe!!\n");
+                            flagDni = 1;
+                        }
                     }
-                edadAux = atoi(edadAuxStr);
 
+                    if(flagDni == 0)
+                    {
+                        persona[espacioLibre] = cargarPersona(nombre[espacioLibre], edad[espacioLibre], dni[espacioLibre]);
+                    }
+                    break;
+                }
 
+                system("pause");
+                system("cls");
 
-                strcpy(persona[espacioLibre].nombre, nombreAux);
-                persona[espacioLibre].edad = edadAux;
-                persona[espacioLibre].dni = dniAux;
-                persona[espacioLibre].estado = 1;
                 break;
 
             case 2:
+
+
+                borrarPersona(persona, TAM);
+                for(i = 0; i < TAM; i++)
+                {
+                    if(persona[i].estado == 0)
+                    {
+                        flagDni = 0;
+                    }
+                }
+
+                system("pause");
                 system("cls");
-                if(!getStringNumero("\nIngrese el DNI a dar de baja : \n", dniAuxStr))
-                    {
-                        printf("El DNI ingresado no es un numero\n");
-                        break;
-                    }
-                dniAux = atoi(dniAuxStr);
-                espacioEncontrado = buscarPorDni( persona, lenght, dniAux);
-                if(espacioEncontrado == -1)
-                    {
-                        printf("\nDNI no encontrado\n");
-                        break;
-                    }
-                persona[espacioEncontrado].estado = 0;
+
                 break;
 
             case 3:
+
+                ordenarPorNombre(persona, TAM);
+                mostrarPersonas(persona, TAM);
+
+                system("pause");
                 system("cls");
-                printf("\n Lista ordenada por nombre : \n");
-
-                ordenarPorNombre( persona, lenght);
-
-                for(i = 0; i < lenght; i++)
-                    {
-                        if(persona[i].estado != 0)
-                            {
-                                printf("\n %s - %d - %d \n\n", persona[i].nombre, persona[i].edad, persona[i].dni);
-                            }
-                    }
 
                 break;
 
             case 4:
 
-
-
-                printf("Grafico : \n");
-
-                int contador1 = 0;
-                int contador2 = 0;
-                int contador3 = 0;
-
-
-
-                for(i = 0; i < lenght ; i++)
+                for(i = 0; i < TAM; i++)
+                {
+                    if(persona[i].estado == 1)
                     {
-                        grafico[0][i] = ' ';
-                        grafico[1][i] = ' ';
-                        grafico[2][i] = ' ';
-                    }
-
-
-                for(i = 0; i < lenght; i++)
-                    {
-                        if(persona[i].edad < 18)
+                        if(persona[i].edad > 1 && persona[i].edad < 19)
+                        {
+                            menores18++;
+                        }
+                        else
+                        {
+                            if(persona[i].edad >= 19 && persona[i].edad <= 35)
                             {
-                                contador1++;
+                                de19A35++;
                             }
-                        if(persona[i].edad > 35)
+                            else
                             {
-                                contador2++;
+                                if(persona[i].edad > 35 && persona[i].edad <= 100)
+                                {
+                                    mayores35++;
+                                }
+
                             }
 
-                        if((persona[i].edad >= 19) && (persona[i].edad <= 35))
-                            {
-                                contador3++;
-                            }
+                        }
                     }
 
 
 
+                }
 
-                for(i = 0; i < lenght ; i++)
-                    {
-                        if( i < contador1)
-                            {
-                                grafico[0][i] = 'x';
-                            }
-                        if( i < contador2)
-                            {
-                                grafico[1][i] = 'x';
-                            }
-                        if( i < contador3)
-                            {
-                                grafico[2][i] = 'x';
-                            }
-                    }
-
-                if(persona[i].estado != 0)
-                    {
-
-                for(i = 19; i >= 0; i--)
-                    {
-
-                    printf("%c\t %c\t %c\n", grafico[0][i], grafico[1][i], grafico[2][i]);
-
-                    }
-                    }
-                printf("< 18 - 19 a 35 - > 35 \n");
-
-
+                grafico(menores18, de19A35, mayores35);
 
 
 
                 break;
             case 5:
-
-                 if(!getStringNumero("Ingrese el DNI de la persona a modificar : ", dniAuxStr))
-                    {
-                        printf("El DNI ingresado no es un numero\n");
-                        break;
-                    }
-
-                dniAux = atoi(dniAuxStr);
-                espacioEncontrado = buscarPorDni( persona, lenght, dniAux);
-                if(espacioEncontrado == -1)
-                    {
-                        printf("DNI no encontrado\n");
-                    }
-
-
-
-                if(!getStringLetras("Ingrese nombre : ", nombreAux))
-                    {
-                        printf("Error, debe ingresar un nombre\n");
-                        break;
-                    }
-
-
-
-                if(!getStringNumero("Ingrese edad : ", edadAuxStr))
-                    {
-                        printf("Error, ingrese edad\n");
-                        break;
-                    }
-                edadAux = atoi(edadAuxStr);
-
-
-
-                strcpy(persona[espacioEncontrado].nombre, nombreAux);
-                persona[espacioEncontrado].edad = edadAux;
-                persona[espacioEncontrado].estado = 1;
-
-                break;
-
-            case 6:
-
                 seguir = 'n';
                 break;
+            default:
+                printf("Error, opcion inexistente, reingrese (1-5) : ");
+                scanf("%d", &opcion);
+                system("pause");
+                system("cls");
+                break;
+
         }
     }
 
