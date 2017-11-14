@@ -46,8 +46,8 @@ int main(void)
 {
 
     #ifdef TEST
-        startTesting(1); //new
-        startTesting(2); //add
+//        startTesting(1); //new
+//        startTesting(2); //add
 //        startTesting(3); //delete
 //        startTesting(4); //len
 //        startTesting(5); //get
@@ -60,12 +60,12 @@ int main(void)
 //        startTesting(12); //indexOf
 //        startTesting(13); //isEmpty
 //        startTesting(14); //pop
-//        startTesting(15); //subList
-//        startTesting(16);
-//        startTesting(17);
-    #else
-        //run();
-        run2();
+        startTesting(15); //subList
+        startTesting(16); //containsAll
+        startTesting(17); //sort
+//    #else
+//        run();
+//        run2();
     #endif
 
     return 0;
