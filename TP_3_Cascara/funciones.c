@@ -79,7 +79,7 @@ int agregarPelicula(EMovie* pelicula, FILE* archivo)
 {
     int flag = 0;
 
-    archivo = fopen("index.html","wb");
+    archivo = fopen("Buffer.dat","wb");
 
     if(archivo != NULL)
     {
@@ -108,7 +108,7 @@ int borrarPelicula(EMovie pelicula,  FILE* archivo)
     EMovie* auxPelicula;
     int i, flag = 0;
 
-    archivo = fopen("index.html","wb");
+    archivo = fopen("Buffer.dat","wb");
 
     if(archivo != NULL)
     {
@@ -340,6 +340,9 @@ void generarPagina(EMovie* pelicula, char nombre[])
                                     <div class='container'>\
                                         <div class='row'>"};
 
+
+
+
     char codigoFinal[] = {"</div>\
                             <!-- /.row -->\
                             </div>\
@@ -375,7 +378,7 @@ void generarPagina(EMovie* pelicula, char nombre[])
 					<li>Puntaje: %d</li>\
 					<li>Duración: %d</li>\
 				</ul>\
-                <p>%s</p>\
+                <p>Descripcion: %s</p>\
             </article>", pelicula->linkImagen, pelicula->titulo, pelicula->genero, pelicula->puntaje, pelicula->duracion, pelicula->descripcion);
 
         fwrite(codigoFinal, sizeof(EMovie), 1, pagina);
@@ -386,3 +389,7 @@ void generarPagina(EMovie* pelicula, char nombre[])
 
 
 }
+
+
+
+

@@ -16,14 +16,14 @@ typedef struct{
  *  @param movie la estructura a ser agregada al archivo
  *  @return retorna 1 o 0 de acuerdo a si pudo agregar la pelicula o no
  */
-int agregarPelicula(EMovie* pelicula, FILE*);
+int agregarPelicula(EMovie* pelicula, FILE* archivo);
 
 /**
  *  Borra una pelicula del archivo binario
  *  @param movie la estructura a ser eliminada al archivo
  *  @return retorna 1 o 0 de acuerdo a si pudo eliminar la pelicula o no
  */
-int borrarPelicula(EMovie pelicula, FILE*);
+int borrarPelicula(EMovie pelicula, FILE* archivo);
 
 /**
  *  Genera un archivo html a partir de las peliculas cargadas en el archivo binario.
@@ -48,7 +48,7 @@ EMovie* iniciarPelicula();
  * \return
  *
  */
-int altaPelicula(EMovie*);
+int altaPelicula(EMovie* pelicula);
 
 /** \brief
  *
@@ -57,7 +57,7 @@ int altaPelicula(EMovie*);
  * \return
  *
  */
-void mostrarPelicula(EMovie*);
+void mostrarPelicula(EMovie* pelicula);
 
 /** \brief
  *
@@ -66,7 +66,7 @@ void mostrarPelicula(EMovie*);
  * \return
  *
  */
-int modificarPelicula(EMovie*);
+int modificarPelicula(EMovie* pelicula);
 
 
 

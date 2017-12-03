@@ -157,7 +157,7 @@ int main()
                     printf("No hay peliculas ingresadas ");
                     break;
                 }
-                printf("Ingrese nombre de la pagina");
+                printf("Ingrese nombre de la pagina : \n");
                 fflush(stdin);
                 gets(auxTitulo);
 
