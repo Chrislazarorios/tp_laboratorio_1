@@ -46,3 +46,21 @@
 	<inttypes.h>
 	"funciones.h"
 
+1504842628 source:c:\users\usuario\desktop\pendrive\programacion y laboratorio i - utn\tp1\tp_1_cascara\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<inttypes.h>
+	"Funciones.h"
+
+1504839958 c:\users\usuario\desktop\pendrive\programacion y laboratorio i - utn\tp1\tp_1_cascara\funciones.h
+	<stdio.h>
+	<stdlib.h>
+	<inttypes.h>
+
+1531862038 source:c:\users\usuario\desktop\pendrive\programacion y laboratorio i - utn\tp1\tp_1_cascara\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<inttypes.h>
+	"funciones.h"
+
