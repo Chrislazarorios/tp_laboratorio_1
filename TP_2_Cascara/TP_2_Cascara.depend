@@ -7,7 +7,7 @@
 
 1493434234 f:\programacion y laboratorio i - utn\tp2\tp_2_cascara\funciones.h
 
-1495386928 source:f:\programacion y laboratorio i - utn\tp2\tp_2_cascara\main.c
+1507434786 source:f:\programacion y laboratorio i - utn\tp2\tp_2_cascara\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -21,29 +21,31 @@
 
 1493300776 e:\programacion y laboratorio i - utn\tp2\tp_2_cascara\funciones.h
 
-1506750736 source:e:\programacion y laboratorio i - utn\tp2\tp_2_cascara\main.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	"TP2.h"
-	"input.h"
-
-1506750722 source:e:\programacion y laboratorio i - utn\tp2\tp_2_cascara\tp2.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	"TP2.h"
-	"Input.h"
-
-1506750654 e:\programacion y laboratorio i - utn\tp2\tp_2_cascara\tp2.h
-
-1493734558 source:f:\programacion y laboratorio i - utn\tp2\tp_2_cascara\tp2.c
+1506900068 source:e:\programacion y laboratorio i - utn\tp2\tp_2_cascara\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"TP2.h"
 
-1493434234 f:\programacion y laboratorio i - utn\tp2\tp_2_cascara\tp2.h
+1506913586 source:e:\programacion y laboratorio i - utn\tp2\tp_2_cascara\tp2.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"TP2.h"
+
+1506890820 e:\programacion y laboratorio i - utn\tp2\tp_2_cascara\tp2.h
+
+1506913586 source:f:\programacion y laboratorio i - utn\tp2\tp_2_cascara\tp2.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"TP2.h"
+
+1506890820 f:\programacion y laboratorio i - utn\tp2\tp_2_cascara\tp2.h
 
 1506077108 source:d:\programacion y laboratorio i - utn\tp2\tp_2_cascara\inputs.c
 	<stdio.h>
@@ -56,7 +58,7 @@
 
 1506077108 d:\programacion y laboratorio i - utn\tp2\tp_2_cascara\inputs.h
 
-1506899524 source:d:\programacion y laboratorio i - utn\tp2\tp_2_cascara\tp2.c
+1506913586 source:d:\programacion y laboratorio i - utn\tp2\tp_2_cascara\tp2.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

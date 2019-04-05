@@ -29,6 +29,7 @@ int main()
         persona[i].estado = 0;
         persona[i].dni = 0;
         persona[i].edad = 0;
+
     }
 
     while(seguir=='s')
