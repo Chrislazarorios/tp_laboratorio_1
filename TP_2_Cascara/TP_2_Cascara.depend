@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1560711417 source:c:\users\usuario\desktop\pendrive\prog-lab-i-utn-c\tp2\tp_2_cascara_2019\tp_2_cascara\employee.c
+	<stdio.h>
+	<stdlib.h>
+	<strings.h>
+	<ctype.h>
+	"Employee.h"
+	"utn.h"
+
+1560660210 c:\users\usuario\desktop\pendrive\prog-lab-i-utn-c\tp2\tp_2_cascara_2019\tp_2_cascara\employee.h
+
+1558569374 c:\users\usuario\desktop\pendrive\prog-lab-i-utn-c\tp2\tp_2_cascara_2019\tp_2_cascara\utn.h
+
+1560711355 source:c:\users\usuario\desktop\pendrive\prog-lab-i-utn-c\tp2\tp_2_cascara_2019\tp_2_cascara\main.c
+	<stdio.h>
+	<stdlib.h>
+	<strings.h>
+	"Employee.h"
+	"utn.h"
+
+1560308162 source:c:\users\usuario\desktop\pendrive\prog-lab-i-utn-c\tp2\tp_2_cascara_2019\tp_2_cascara\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"utn.h"
+
