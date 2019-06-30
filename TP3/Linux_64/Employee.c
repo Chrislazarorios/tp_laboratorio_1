@@ -52,7 +52,6 @@ int employee_setId(Employee* this,int id)
     int retorno = -1;
     if(this != NULL && id >= 0)//faltan
     {
-//        if(validId)
         this->id = id;
         retorno = 0;
     }
@@ -65,10 +64,12 @@ int employee_setIdStr(Employee* this,char* id)
     int idAux;
     if(this != NULL) //faltan
     {
-//        if(validId)
+        if(isValidNumber(id))
+        {
             idAux = atoi(id);
             this->id = idAux;
             retorno = 0;
+        }
     }
     return retorno;
 }
@@ -126,9 +127,17 @@ int employee_setHorasTrabajadasStr(Employee* this,char* horasTrabajadas)
     int horasAux;
     if(this != NULL)
     {
-        horasAux = atoi(horasTrabajadas);
-        this->horasTrabajadas = horasAux;
-        retorno = 0;
+        if(isValidNumber(horasTrabajadas))
+        {
+            horasAux = atoi(horasTrabajadas);
+            this->horasTrabajadas = horasAux;
+            retorno = 0;
+        }
+        else
+        {
+            printf("\nError, ingrese numeros\n");
+        }
+
     }
     return retorno;
 }
@@ -165,9 +174,12 @@ int employee_setSueldoStr(Employee* this,char* sueldo)
     int sueldoAux;
     if(this != NULL)
     {
-        sueldoAux = atoi(sueldo);
-        this->sueldo = sueldoAux;
-        retorno = 0;
+        if(isValidNumber(sueldo))
+        {
+            sueldoAux = atoi(sueldo);
+            this->sueldo = sueldoAux;
+            retorno = 0;
+        }
     }
     return retorno;
 }

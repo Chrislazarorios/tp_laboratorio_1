@@ -91,8 +91,12 @@ int employee_setNombre(Employee* this,char* nombre)
     int retorno = -1;
     if(this != NULL)
     {
-        strncpy(this->nombre,nombre,sizeof(this->nombre));
-        retorno = 0;
+        if(isValidName(nombre))
+        {
+            strncpy(this->nombre,nombre,sizeof(this->nombre));
+            retorno = 0;
+        }
+
     }
     return retorno;
 }
@@ -126,9 +130,16 @@ int employee_setHorasTrabajadasStr(Employee* this,char* horasTrabajadas)
     int horasAux;
     if(this != NULL)
     {
-        horasAux = atoi(horasTrabajadas);
-        this->horasTrabajadas = horasAux;
-        retorno = 0;
+        if(isValidNumber(horasTrabajadas))
+        {
+            horasAux = atoi(horasTrabajadas);
+            this->horasTrabajadas = horasAux;
+            retorno = 0;
+        }
+        else
+        {
+            printf("\nError, ingrese numeros\n");
+        }
     }
     return retorno;
 }
@@ -165,9 +176,12 @@ int employee_setSueldoStr(Employee* this,char* sueldo)
     int sueldoAux;
     if(this != NULL)
     {
-        sueldoAux = atoi(sueldo);
-        this->sueldo = sueldoAux;
-        retorno = 0;
+        if(isValidNumber(sueldo))
+        {
+            sueldoAux = atoi(sueldo);
+            this->sueldo = sueldoAux;
+            retorno = 0;
+        }
     }
     return retorno;
 }

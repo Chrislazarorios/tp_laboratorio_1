@@ -23,19 +23,21 @@ int main()
 {
     int option = 0;
     LinkedList* listaEmpleados = ll_newLinkedList();
-    char nombreArchivoTexto[128];
-    char nombreArchivoBinario[128];
+    char ArchivoText[128];
+    char ArchivoBinary[128];
     do{
+        utn_getUnsignedInt("\n\n1) Cargar datos en modo texto\n2) Cargar datos en modo binario\n3) Alta empleado\n4) Modificar empleado\n5) Baja empleado\n6) Listar empleado\n7) Ordenar empleado\n8) Guardar datos en modo texto\n9) Guardar datos en modo binario\n10) Salir\n","\nError",1,sizeof(int),1,11,1,&option);
+
         switch(option)
         {
-            case 1: //
-                utn_getTexto("\nIngrese nombre de archivo a abrir (data.csv):","\nError ",1,20,1,nombreArchivoTexto);
-                controller_loadFromText(nombreArchivoTexto,listaEmpleados);
+            case 1:
+                utn_getTexto("\nIngrese nombre de archivo a abrir en modo texto:","\nError ",1,30,3,ArchivoText);
+                controller_loadFromText(ArchivoText,listaEmpleados);
                 break;
 
-            case 2: //
-                utn_getTexto("\nIngrese nombre de archivo a abrir (dataBinario.csv):","\nError ",1,20,1,nombreArchivoBinario);
-                controller_loadFromBinary(nombreArchivoBinario,listaEmpleados);
+            case 2:
+                utn_getTexto("\nIngrese nombre de archivo a abrir en modo binario:","\nError ",1,30,3,ArchivoBinary);
+                controller_loadFromBinary(ArchivoBinary,listaEmpleados);
                 break;
 
             case 3:
@@ -59,13 +61,13 @@ int main()
                 break;
 
             case 8:
-                utn_getTexto("\nIngrese nombre de archivo a guardar: ","\nError ",1,20,1,nombreArchivoTexto);
-                controller_saveAsText(nombreArchivoTexto,listaEmpleados);
+                utn_getTexto("\nIngrese nombre de archivo a guardar en modo texto: ","\nError ",1,30,3,ArchivoText);
+                controller_saveAsText(ArchivoText,listaEmpleados);
                 break;
 
             case 9:
-                utn_getTexto("\nIngrese nombre de archivo a guardar: ","\nError ",1,20,1,nombreArchivoBinario);
-                controller_saveAsBinary(nombreArchivoBinario,listaEmpleados);
+                utn_getTexto("\nIngrese nombre de archivo a guardar en modo binario: ","\nError ",1,30,3,ArchivoBinary);
+                controller_saveAsBinary(ArchivoBinary,listaEmpleados);
                 break;
 
             case 10://Salir

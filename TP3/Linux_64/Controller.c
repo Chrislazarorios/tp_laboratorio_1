@@ -89,9 +89,9 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
         employee = employee_new();
 
         auxId = employee_generaId();
-        utn_getName("Ingrese nombre","Error",0,128,3,auxNombre);
-        utn_getTexto("\nIngrese sueldo: ","\nError",1,50,3,auxSueldoStr);
-        utn_getTexto("\nIngrese horas: ","\nError",1,50,3,auxHorasTrabajoStr);
+        utn_getName("Ingrese nombre : ","Error",0,128,3,auxNombre);
+        utn_getTexto("\nIngrese sueldo : ","\nError",1,50,3,auxSueldoStr);
+        utn_getTexto("\nIngrese horas : ","\nError",1,50,3,auxHorasTrabajoStr);
 
         if(employee != NULL && !employee_setId(employee,auxId) && !employee_setNombre(employee,auxNombre) && !employee_setSueldoStr(employee,auxSueldoStr) && !employee_setHorasTrabajadasStr(employee,auxHorasTrabajoStr))
         {
