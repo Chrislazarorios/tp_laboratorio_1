@@ -83,12 +83,16 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
     char auxNombre[128];
     char auxHorasTrabajoStr[128];
     char auxSueldoStr[128];
+    int len;
 
     if(pArrayListEmployee != NULL)
     {
         employee = employee_new();
 
-        auxId = employee_generaId();
+        len = ll_len(pArrayListEmployee);
+
+//        auxId = employee_generaId();
+        auxId = len+1;
         utn_getName("Ingrese nombre : ","Error",0,128,3,auxNombre);
         utn_getTexto("\nIngrese sueldo : ","\nError",1,50,3,auxSueldoStr);
         utn_getTexto("\nIngrese horas : ","\nError",1,50,3,auxHorasTrabajoStr);
@@ -306,7 +310,7 @@ int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
             employee_getNombre(pEmpl, auxNombre);
             employee_getHorasTrabajadas(pEmpl, &auxHorasTrabajo);
             employee_getSueldo(pEmpl, &auxSueldo);
-            fprintf(fp, "%d, %s, %d, %d\n", auxId, auxNombre, auxHorasTrabajo, auxSueldo);
+            fprintf(fp, "%d,%s,%d,%d\n", auxId, auxNombre, auxHorasTrabajo, auxSueldo);
 
             ret = 0;
         }

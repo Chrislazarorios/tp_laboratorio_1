@@ -29,7 +29,6 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
                                                   bufferSueldo);
 
 
-      printf("antes del bucle!!");
         while(!feof(pFile))
         {
             fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",bufferId,
@@ -55,7 +54,6 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
         }
     }
 
-    printf("termine·\n");
     return ret;
 }
 
@@ -82,7 +80,7 @@ int parser_EmployeeFromBinary(FILE* pFile , LinkedList* pArrayListEmployee)
             if(fread(pEmpl, sizeof(Employee), 1, pFile) == 1)
             {
                 // agregarlo a la linkedlist
-//                ll_add(pArrayListEmployee, pEmpl);
+                ll_add(pArrayListEmployee, pEmpl);
             }
             else
             {
