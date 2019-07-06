@@ -92,8 +92,12 @@ int employee_setNombre(Employee* this,char* nombre)
     int retorno = -1;
     if(this != NULL)
     {
-        strncpy(this->nombre,nombre,sizeof(this->nombre));
-        retorno = 0;
+        if(isValidName(nombre))
+        {
+            strncpy(this->nombre,nombre,sizeof(this->nombre));
+            retorno = 0;
+        }
+
     }
     return retorno;
 }

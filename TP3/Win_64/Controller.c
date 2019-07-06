@@ -340,7 +340,7 @@ int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee)
     Employee* pEmpl; // creamos un puntero a empleado para guardar el resultado de ll_get
 
     int len;
-    FILE* fp = fopen(path, "w+"); // en windows es w+b, en linux puede ir w+ o w+b, en linux es lo mismo
+    FILE* fp = fopen(path, "w+b"); // en windows es w+b, en linux puede ir w+ o w+b, en linux es lo mismo
     if(fp != NULL)
     {
 //        fprintf(fp, "id,nombre,horasTrabajadas,sueldo\n");
